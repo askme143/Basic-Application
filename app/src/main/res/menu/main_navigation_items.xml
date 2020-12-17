@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/phone_book"
+        android:icon="@drawable/ic_phone_book"
+        android:enabled="true"
+        android:title="phone book" />
+    <item
+        android:id="@+id/gallery"
+        android:icon="@drawable/ic_gallery"
+        android:enabled="true"
+        android:checked="true"
+        android:title="gallery" />
+    <item
+        android:id="@+id/health"
+        android:icon="@drawable/ic_bike"
+        android:enabled="true"
+        android:title="health" />
+</menu>
