@@ -11,23 +11,27 @@ import com.yeongil.basicapplication.databinding.ItemContactBinding
 
 class ContactsAdapter : ListAdapter<Contact, ContactsAdapter.ViewHolder>(DiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemContactBinding.inflate(LayoutInflater.from(parent.context)))
+        val viewHolder = ViewHolder(ItemContactBinding.inflate(LayoutInflater.from(parent.context)))
+
+        viewHolder.itemView.apply {
+            this.layoutParams = RecyclerView.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        }
+
+        return viewHolder
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), position)
+        holder.bind(getItem(position))
     }
 
-    class ViewHolder(private val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val profileImg = binding.profileImage
-        private val name = binding.name
-        private val phoneNumber = binding.phoneNumber
-
-        fun bind(item: Contact, position: Int) {
-            name.text = item.name
-            phoneNumber.text = item.phoneNumber
-//            binding.root.setOnClickListener
-//            binding.setVariable(BR.)
+    class ViewHolder(private val binding: ItemContactBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: Contact) {
+            binding.setVariable(BR.item, item)
+            binding.executePendingBindings()
         }
     }
 

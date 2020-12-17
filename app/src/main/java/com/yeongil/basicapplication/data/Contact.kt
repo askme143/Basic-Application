@@ -1,3 +1,3 @@
 package com.yeongil.basicapplication.data
 
-data class Contact(val phoneNumber: String, val name: String, val profileId: Long)
+data class Contact(val name: String, val phoneNumber: String, val profileId: Long)

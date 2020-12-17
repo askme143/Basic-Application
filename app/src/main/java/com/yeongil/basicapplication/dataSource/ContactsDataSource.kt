@@ -41,7 +41,7 @@ class ContactsDataSource(private val contentResolver: ContentResolver) {
 
                 if (!dupCheckMap.containsKey(contactId)) {
                     dupCheckMap[contactId] = true
-                    contactList.add(Contact(formattedNumber, name, photoId))
+                    contactList.add(Contact(name, formattedNumber, photoId))
                 }
             } while (contactCursor.moveToNext())
             contactCursor.close()
